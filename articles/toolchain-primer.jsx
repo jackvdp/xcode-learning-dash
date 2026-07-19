@@ -1,5 +1,5 @@
 import { T } from "../theme.js";
-import { C, PageLink, Figure, Node, Arrow, ArrowMarker } from "../article.jsx";
+import { C, PageLink, Figure, Node, Arrow, ArrowMarker } from "../components/article.jsx";
 
 // ————————————————————————————————————————————————
 // Foundational primer: the vocabulary the WWDC18-415

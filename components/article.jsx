@@ -1,4 +1,4 @@
-import { T } from "./theme.js";
+import { T } from "../theme.js";
 
 // ————————————————————————————————————————————————
 // Generic article page. All presentation lives here;

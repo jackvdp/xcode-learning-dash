@@ -15,9 +15,10 @@ Then open the URL Vite prints (usually http://localhost:5173).
 
 ## Layout
 
-- `xcode-internals-dashboard.jsx` — the dashboard component (home page)
-- `article.jsx` — generic article page: layout, typography blocks and SVG
-  diagram primitives; renders any article object
+- `components/xcode-internals-dashboard.jsx` — the dashboard component
+  (home page)
+- `components/article.jsx` — generic article page: layout, typography
+  blocks and SVG diagram primitives; renders any article object
 - `articles/` — one content file per article (text + diagrams, no
   presentation), plus `index.js`, the registry the router reads. To add an
   article: create `articles/<id>.jsx`, register it in `index.js`, and it's

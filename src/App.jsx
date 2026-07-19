@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import XcodeInternalsDashboard from "../xcode-internals-dashboard.jsx";
-import Article from "../article.jsx";
+import XcodeInternalsDashboard from "../components/xcode-internals-dashboard.jsx";
+import Article from "../components/article.jsx";
 import { ARTICLES } from "../articles/index.js";
 
 const getRoute = () => window.location.hash.replace(/^#/, "") || "/";

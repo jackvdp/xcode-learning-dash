@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { T } from "./theme.js";
+import { T } from "../theme.js";
 
 const STORAGE_KEY = "xcode-internals-dashboard-v1";
 

@@ -1,5 +1,5 @@
 import { T } from "../theme.js";
-import { C, A, PageLink, Figure, Node, Arrow, ArrowMarker } from "../article.jsx";
+import { C, A, PageLink, Figure, Node, Arrow, ArrowMarker } from "../components/article.jsx";
 
 // ————————————————————————————————————————————————
 // Content for "Behind the Scenes of the Xcode Build Process"
