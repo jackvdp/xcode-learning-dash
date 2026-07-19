@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import XcodeInternalsDashboard from "../xcode-internals-dashboard.jsx";
-import BuildProcessArticle from "../wwdc2018-415-article.jsx";
+import Article from "../article.jsx";
+import { ARTICLES } from "../articles/index.js";
 
 const getRoute = () => window.location.hash.replace(/^#/, "") || "/";
-
-const TITLES = {
-  "/": "import XcodeInternals",
-  "/wwdc2018-415": "Behind the Scenes of the Xcode Build Process",
-};
 
 export default function App() {
   const [route, setRoute] = useState(getRoute);
@@ -18,10 +14,12 @@ export default function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
+  const article = ARTICLES.find((a) => route === `/${a.id}`);
+
   useEffect(() => {
-    document.title = TITLES[route] || TITLES["/"];
+    document.title = article ? article.title : "import XcodeInternals";
     window.scrollTo(0, 0);
   }, [route]);
 
-  return route === "/wwdc2018-415" ? <BuildProcessArticle /> : <XcodeInternalsDashboard />;
+  return article ? <Article article={article} /> : <XcodeInternalsDashboard />;
 }

@@ -16,10 +16,14 @@ Then open the URL Vite prints (usually http://localhost:5173).
 ## Layout
 
 - `xcode-internals-dashboard.jsx` — the dashboard component (home page)
-- `wwdc2018-415-article.jsx` — full article write-up of WWDC18 session 415,
-  served at `#/wwdc2018-415` and linked from the video's row on the dashboard
+- `article.jsx` — generic article page: layout, typography blocks and SVG
+  diagram primitives; renders any article object
+- `articles/` — one content file per article (text + diagrams, no
+  presentation), plus `index.js`, the registry the router reads. To add an
+  article: create `articles/<id>.jsx`, register it in `index.js`, and it's
+  served at `#/<id>` (e.g. `articles/wwdc2018-415.jsx` → `#/wwdc2018-415`)
 - `theme.js` — shared Xcode-dark design tokens
-- `src/App.jsx` — tiny hash router between the two pages
+- `src/App.jsx` — tiny hash router: dashboard at `#/`, articles by id
 - `src/main.jsx` — entry point; also shims the `window.storage` API the
   dashboard was originally written against (claude.ai artifacts) onto
   localStorage

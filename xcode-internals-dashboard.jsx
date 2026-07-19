@@ -99,6 +99,7 @@ const MODULES = [
     tag: "target",
     desc: "What actually happens when you hit ⌘B — the dependency graph, task planning and parallelisation.",
     resources: [
+      { id: "bs0", kind: "primer", title: "The Toolchain, From Scratch — read this first", url: "#/toolchain-primer" },
       {
         id: "bs1",
         kind: "wwdc",
@@ -165,7 +166,7 @@ const MODULES = [
   },
 ];
 
-const KIND_COLOR = { wwdc: T.pink, article: T.teal, docs: T.yellow, ref: T.yellow, thread: T.red };
+const KIND_COLOR = { wwdc: T.pink, article: T.teal, docs: T.yellow, ref: T.yellow, thread: T.red, primer: T.green };
 
 const TOTAL = MODULES.reduce((n, m) => n + m.resources.length, 0);
 
@@ -383,7 +384,7 @@ export default function XcodeInternalsDashboard() {
                         {done[r.id] ? "✓" : ""}
                       </button>
                       <div style={{ minWidth: 0 }}>
-                        <a href={r.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, lineHeight: 1.45, textDecoration: "none", color: done[r.id] ? T.dim : T.text, display: "block" }}>
+                        <a href={r.url} target={r.url.startsWith("#") ? undefined : "_blank"} rel={r.url.startsWith("#") ? undefined : "noopener noreferrer"} style={{ fontSize: 14, lineHeight: 1.45, textDecoration: "none", color: done[r.id] ? T.dim : T.text, display: "block" }}>
                           {r.title}
                         </a>
                         <span style={{ fontFamily: T.mono, fontSize: 10.5, color: KIND_COLOR[r.kind] || T.dim, textTransform: "uppercase", letterSpacing: "1px" }}>{r.kind}</span>
@@ -421,7 +422,7 @@ export default function XcodeInternalsDashboard() {
         {/* ——— Footer ——— */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 24, gap: 12, flexWrap: "wrap" }}>
           <div style={{ fontFamily: T.mono, fontSize: 12, color: complete ? T.green : T.dim }}>
-            {complete ? "** BUILD SUCCEEDED ** — all 22 resources compiled" : `${pct}% — notes and progress persist between sessions`}
+            {complete ? `** BUILD SUCCEEDED ** — all ${TOTAL} resources compiled` : `${pct}% — notes and progress persist between sessions`}
           </div>
           <button
             onClick={() => { if (window.confirm("Clear all progress and notes? This can't be undone.")) resetAll(); }}
