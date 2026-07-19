@@ -109,7 +109,15 @@ const MODULES = [
         summary:
           "One speaker per stage: build system, Clang, Swift, then the linker. Most of it hangs off one idea — ⌘B turns your project into a directed graph of tasks, each with a signature hashed from its inputs, command line and tool version, and a task reruns only when that signature changes. That's all an incremental build is. Along the way you learn that headermaps are how Xcode tells Clang where your headers actually live, that Clang modules ignore your #defines so the cache can be shared, that Swift parses every other file in the target to find declarations (which is why Xcode 10 batches files into groups), and that the linker moves and patches code but can never create it. Homework: declare inputs and outputs on run script phases, keep 'parallelize build' ticked, framework-qualify your header imports, and don't trust auto-link for your own targets.",
       },
-      { id: "bs2", kind: "wwdc", title: "Demystify parallelization in Xcode builds — WWDC22", url: "https://developer.apple.com/videos/play/wwdc2022/110364/" },
+      {
+        id: "bs2",
+        kind: "wwdc",
+        title: "Demystify parallelization in Xcode builds — WWDC22",
+        url: "https://developer.apple.com/videos/play/wwdc2022/110364/",
+        article: "#/wwdc2022-110364",
+        summary:
+          "The 2022 sequel, and really one idea examined from every angle: your build is only as fast as its critical path, the chain of dependent tasks that no amount of hardware can flatten. Ben introduces the Xcode 14 build timeline (rows are parallel tasks, gaps are cores waiting for an input someone hasn't produced yet) and explains why script phases usually cause the gaps: Xcode can't see inside a shell script, so it runs them one at a time unless you declare inputs and outputs it can trust. Sandboxing exists to make those declarations honest, turning a silent data race into a build error that names the file. Artem's half covers the Xcode 14 rewrite that put the build system in charge of scheduling Swift compilation, the emit-module task that lets dependent targets start compiling before you've finished, and eager linking, which links against a list of promised symbols instead of the finished dylib. Homework: declare script inputs and outputs, switch on ENABLE_USER_SCRIPT_SANDBOXING, keep Debug on incremental compilation, and go stare at your own build timeline.",
+      },
       { id: "bs3", kind: "article", title: "Understanding the Xcode build system, Part 1 — flyingharley", url: "https://flyingharley.dev/posts/understanding-the-xcode-build-system-part-1" },
       { id: "bs4", kind: "article", title: "Understanding the Xcode build system, Part 2 — flyingharley", url: "https://flyingharley.dev/posts/understanding-the-xcode-build-system-part-2" },
       { id: "bs5", kind: "article", title: "The Xcode Build System — pewpewthespells", url: "https://pewpewthespells.com/blog/xcode_build_system.html" },

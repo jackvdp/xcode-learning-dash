@@ -3,5 +3,6 @@
 // serves each one at #/<id>.
 import toolchainPrimer from "./toolchain-primer.jsx";
 import wwdc2018415 from "./wwdc2018-415.jsx";
+import wwdc2022110364 from "./wwdc2022-110364.jsx";
 
-export const ARTICLES = [toolchainPrimer, wwdc2018415];
+export const ARTICLES = [toolchainPrimer, wwdc2018415, wwdc2022110364];
