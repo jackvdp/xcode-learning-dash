@@ -160,7 +160,7 @@ export function ArrowMarker({ id }) {
 // ————————————————————————————————————————————————
 // Block renderer + page
 // ————————————————————————————————————————————————
-function renderBlock(block, i) {
+export function renderBlock(block, i) {
   switch (block.type) {
     case "kicker":
       return <Kicker key={i}>{block.text}</Kicker>;

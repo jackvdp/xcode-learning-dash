@@ -1,0 +1,13 @@
+{
+  "name": "xcode-learning-dash-lab-server",
+  "private": true,
+  "type": "module",
+  "description": "Local PTY bridge for the dashboard's in-browser lab terminal",
+  "scripts": {
+    "postinstall": "chmod +x node_modules/node-pty/prebuilds/darwin-*/spawn-helper 2>/dev/null || true"
+  },
+  "dependencies": {
+    "node-pty": "^1.0.0",
+    "ws": "^8.18.0"
+  }
+}

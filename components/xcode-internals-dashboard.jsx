@@ -118,6 +118,7 @@ const MODULES = [
         summary:
           "The 2022 sequel, and really one idea examined from every angle: your build is only as fast as its critical path, the chain of dependent tasks that no amount of hardware can flatten. Ben introduces the Xcode 14 build timeline (rows are parallel tasks, gaps are cores waiting for an input someone hasn't produced yet) and explains why script phases usually cause the gaps: Xcode can't see inside a shell script, so it runs them one at a time unless you declare inputs and outputs it can trust. Sandboxing exists to make those declarations honest, turning a silent data race into a build error that names the file. Artem's half covers the Xcode 14 rewrite that put the build system in charge of scheduling Swift compilation, the emit-module task that lets dependent targets start compiling before you've finished, and eager linking, which links against a list of promised symbols instead of the finished dylib. Homework: declare script inputs and outputs, switch on ENABLE_USER_SCRIPT_SANDBOXING, keep Debug on incremental compilation, and go stare at your own build timeline.",
       },
+      { id: "bs6", kind: "lab", title: "Lab 01 · Be the Build System — compile and link by hand in a live terminal", url: "#/labs/be-the-build-system" },
       { id: "bs3", kind: "article", title: "Understanding the Xcode build system, Part 1 — flyingharley", url: "https://flyingharley.dev/posts/understanding-the-xcode-build-system-part-1" },
       { id: "bs4", kind: "article", title: "Understanding the Xcode build system, Part 2 — flyingharley", url: "https://flyingharley.dev/posts/understanding-the-xcode-build-system-part-2" },
       { id: "bs5", kind: "article", title: "The Xcode Build System — pewpewthespells", url: "https://pewpewthespells.com/blog/xcode_build_system.html" },
@@ -174,7 +175,7 @@ const MODULES = [
   },
 ];
 
-const KIND_COLOR = { wwdc: T.pink, article: T.teal, docs: T.yellow, ref: T.yellow, thread: T.red, primer: T.green };
+const KIND_COLOR = { wwdc: T.pink, article: T.teal, docs: T.yellow, ref: T.yellow, thread: T.red, primer: T.green, lab: T.red };
 
 const TOTAL = MODULES.reduce((n, m) => n + m.resources.length, 0);
 
